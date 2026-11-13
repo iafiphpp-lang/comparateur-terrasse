@@ -6,3 +6,8 @@ authenticated group such as ``v1`` declares ``dependencies`` that cascade to eve
 it. A new group must declare ``dependencies``, or the import fails, so a group cannot default to
 public.
 """
+
+from fastapi import params
+
+# The whole tree is public: this app only serves the comparateur page and its health probes.
+dependencies: tuple[params.Depends, ...] = ()
